@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lịch Hai Tháng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #d0f0f9, #d6d2ff);
+      padding: 40px;
+    }
+
+    .calendar-wrapper {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .calendar {
+      width: 45%;
+    }
+
+    .calendar-header {
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .calendar-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .calendar-table th,
+    .calendar-table td {
+      width: 14.28%;
+      text-align: center;
+      padding: 6px 0;
+      font-size: 14px;
+    }
+
+    .calendar-table th {
+      color: #777;
+    }
+
+    .calendar-table td {
+      color: #333;
+    }
+
+    .nav-arrow {
+      position: absolute;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav-left {
+      left: 40px;
+    }
+
+    .nav-right {
+      right: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calendar-wrapper" id="calendarWrapper">
+    <div class="calendar" id="calendar1">
+      <div class="calendar-header" id="monthYear1"></div>
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+          </tr>
+        </thead>
+        <tbody id="dates1"></tbody>
+      </table>
+    </div>
+
+    <div class="calendar" id="calendar2">
+      <div class="calendar-header" id="monthYear2"></div>
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+          </tr>
+        </thead>
+        <tbody id="dates2"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function renderCalendar(monthOffset, calendarId, headerId) {
+      const today = new Date();
+      const firstDay = new Date(today.getFullYear(), today.getMonth() + monthOffset, 1);
+      const year = firstDay.getFullYear();
+      const month = firstDay.getMonth();
+      const lastDay = new Date(year, month + 1, 0).getDate();
+      const startDay = firstDay.getDay();
+
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+      document.getElementById(headerId).innerText = `${monthNames[month]} ${year}`;
+
+      const tbody = document.getElementById(calendarId);
+      tbody.innerHTML = "";
+
+      let row = document.createElement("tr");
+      let day = 1;
+
+      for (let i = 0; i < 42; i++) {
+        let cell = document.createElement("td");
+        if (i < startDay && day === 1) {
+          cell.innerText = "";
+        } else if (day <= lastDay) {
+          cell.innerText = day++;
+        } else {
+          cell.innerText = "";
+        }
+        row.appendChild(cell);
+        if ((i + 1) % 7 === 0) {
+          tbody.appendChild(row);
+          row = document.createElement("tr");
+        }
+      }
+    }
+
+    // Hiển thị lịch tháng hiện tại và tháng tiếp theo
+    renderCalendar(0, "dates1", "monthYear1");
+    renderCalendar(1, "dates2", "monthYear2");
+  </script>
+
+</body>
+</html>

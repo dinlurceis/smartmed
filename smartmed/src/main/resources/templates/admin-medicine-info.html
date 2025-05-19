@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Info</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo-edited.png">
+    <link href='https://fonts.googleapis.com/css?family=Kumbh Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inria Sans' rel='stylesheet'>   
+    <link href='https://fonts.googleapis.com/css?family=Lexend Peta:400,900' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="menu-admin.css">
+    <style>
+        .title-box {
+            height: 100px;
+            margin-left: 250px;
+        }
+        .title-box h1 {
+            font-family: 'Lexend Peta', sans-serif;
+            padding-left: 30px;
+            padding-top: 20px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        .noti {
+            color: black;
+            font-size: 20px;
+            float: right;
+            margin-top: 50px;
+            cursor: pointer;
+        }
+        .sign-out {
+            margin: 53px 80px 0 30px;
+            float: right;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+        }
+        .search-box {
+            margin: 20px 0 0 250px;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            height: 70px;
+        }
+        .search-box .filter {
+            border-radius: 20px;
+            border: 1px solid gray;
+            padding: 3px;
+            color: gray;
+            width: 120px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            margin-left: 30px;
+        }
+        .search-box .filter:hover {
+            background-color: black;
+            color: white;
+            border: 0;
+        }
+        .search-box input {
+            background-color: rgba(0,0,0,0.1);
+            border: 0;
+            border-radius: 20px;
+            color:rgba(0,0,0,0.5);
+            height: 50px;
+            width: 700px;
+            padding-left: 40px;
+            margin-left: 30px;
+        }
+        .search-box .add-new {
+            border-radius: 5px;
+            background-color: rgba(0,0,0,0.6);
+            padding-top : 15px;
+            color: white;
+            width: 90px;
+            height: 50px;
+            text-align: center;
+            cursor: pointer;
+            margin-left: 30px;
+        }
+        .table-info {
+            margin: 0 0 0 290px;
+        }
+        .table-info th, td {
+            padding: 13px;
+            text-align: left;
+        }
+        .table-info tbody tr:nth-child(odd) {
+            background-color: rgba(127,255,212, 0.5);
+        }
+        .table-info td a {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<!-- Menu -->
+<div class="menu">
+    <img src="/images/logo-edited.png" alt="Logo" style="width: 100px;">
+    <h2>SMARTMED</h2>
+    <div class="line-break"></div>
+    <a href="#dashboard"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp; Dash board</a>
+    <a href="admin-user-info.html"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp; User Info</a>
+    <a href="admin-disease-info.html"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp; Disease Info</a>
+    <a href="admin-medicine-info.html"><i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp; Medicine Info</a>
+    <a href="#admin-settings"><i class="glyphicon glyphicon-cog"></i>&nbsp;&nbsp; Settings</a>
+    <div class="footer"><p>&copy; 2025 SmartMed.</p></div>
+</div>
+<div class="title-box">
+    <h1>MEDICINE INFO</h1>
+    <div class="sign-out">SIGN OUT</div>
+    
+    <div class="noti">
+        <i class="glyphicon glyphicon-envelope"></i>
+    </div>
+</div>
+<div class="search-box">
+    <div class="filter">
+        Add filter <i class="glyphicon glyphicon-menu-down"></i>
+    </div>
+    <input type="text" placeholder="Search for medicine"></input>
+    <a href="add-medicine.html" class="add-new">Add new</a>
+</div>
+<table class="table-info">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Dosage Form</th>
+            <th>Strength</th>
+            <th>Manufacturer</th>
+            <th>Indication</th>
+            <th>Classification</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Acetocillin</td>
+            <td>Antidiabetic</td>
+            <td>Cream</td>
+            <td>938 mg</td>
+            <td>Roche Holding AG</td>
+            <td>Virus</td>
+            <td>Over-the-Counter</td>
+            <td><a href="update-medicine.html" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a  onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Ibuprocillin</td>
+            <td>Antiviral</td>
+            <td>Injection</td>
+            <td>337 mg</td>
+            <td>CSL Limited</td>
+            <td>Infection</td>
+            <td>Over-the-Counter</td>
+            <td><a  onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Dextrophen</td>
+            <td>Antibiotic</td>
+            <td>Ointment</td>
+            <td>333 mg</td>
+            <td>Johnson & Johnson</td>
+            <td>Wound</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Clarinazole</td>
+            <td>Antifungal</td>
+            <td>Syrup</td>
+            <td>362 mg</td>
+            <td>AbbVie Inc.</td>
+            <td>Pain</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Amoxicillin</td>
+            <td>Antifungal</td>
+            <td>Tablet</td>
+            <td>802 mg</td>
+            <td>Teva Pharmaceutical Industries Ltd.</td>
+            <td>Wound</td>
+            <td>Over-the-Counter</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Ibupromycin</td>
+            <td>Antibiotic</td>
+            <td>Injection</td>
+            <td>140 mg</td>
+            <td>Takeda Pharmaceutical Company Limited</td>
+            <td>Infection</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Metovir</td>
+            <td>Antipyretic</td>
+            <td>Ointment</td>
+            <td>641 mg</td>
+            <td>Takeda Pharmaceutical Company Limited</td>
+            <td>Infection</td>
+            <td>Over-the-Counter</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Ibuprovir</td>
+            <td>Antidepressant</td>
+            <td>Syrup</td>
+            <td>758 mg</td>
+            <td>Eli Lilly and Company</td>
+            <td>Fungus</td>
+            <td>Over-the-Counter</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Cefcillin</td>
+            <td>Antipyretic</td>
+            <td>Tablet</td>
+            <td>954 mg</td>
+            <td>Takeda Pharmaceutical Company Limited</td>
+            <td>Fungus</td>
+            <td>Over-the-Counter</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Acetomycin</td>
+            <td>Analgesic</td>
+            <td>Inhaler</td>
+            <td>838 mg</td>
+            <td>Novo Nordisk A/S</td>
+            <td>Wound</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Ibuprocillin</td>
+            <td>Antifungal</td>
+            <td>Ointment</td>
+            <td>422 mg</td>
+            <td>AbbVie Inc.</td>
+            <td>Wound</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Acetonazole</td>
+            <td>Antipyretic</td>
+            <td>Ointment</td>
+            <td>575 mg</td>
+            <td>Bayer AG</td>
+            <td>Wound</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Dolocillin</td>
+            <td>Antiviral</td>
+            <td>Ointment</td>
+            <td>451 mg</td>
+            <td>Novo Nordisk A/S</td>
+            <td>Diabetes</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Cefmet</td>
+            <td>Antifungal</td>
+            <td>Tablet</td>
+            <td>440 mg</td>
+            <td>AstraZeneca plc</td>
+            <td>Depression</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Dolophen</td>
+            <td>Antibiotic</td>
+            <td>Capsule</td>
+            <td>469 mg</td>
+            <td>Johnson & Johnson</td>
+            <td>Depression</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Ibupronazole</td>
+            <td>Analgesic</td>
+            <td>Injection</td>
+            <td>720 mg</td>
+            <td>Novartis AG</td>
+            <td>Fungus</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+        <tr>
+            <td>Amoxiprofen</td>
+            <td>Antiviral</td>
+            <td>Ointment</td>
+            <td>861 mg</td>
+            <td>Novo Nordisk A/S</td>
+            <td>Diabetes</td>
+            <td>Prescription</td>
+            <td><a href="#" onclick="editRow(this);"><i class="glyphicon glyphicon-pencil"></i></a></td>
+            <td><a href="#" onclick="deleteRow(this);"><i class="glyphicon glyphicon-trash"></i></a></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

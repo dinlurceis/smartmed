@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Info</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo-edited.png">
+    <link href='https://fonts.googleapis.com/css?family=Inter:500,700' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inria Sans' rel='stylesheet'>   
+    <link href='https://fonts.googleapis.com/css?family=Lexend Peta:400,900' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="header.css">
+    <style>
+        body {
+            font-size: 15px;
+            font-family: 'Inria Sans', sans-serif;
+            color: black;
+        }
+        .bg-info {
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 50vw;
+            width: 99vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .blur-bg {
+            position: absolute;
+            top: 4.2vw;
+            height: 50vw;
+            width: 99vw;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 0;
+        }
+        .signin-box {
+            width: 30vw;
+            height: 25vw;
+            border-radius: 15px;
+            margin: 50px 0 0 800px;
+            background-color: white;
+        }
+        .brand {
+            height: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .brand img {
+            width: 50px;
+            height: 50px;
+            display: inline;
+        }
+        .signin-form {
+            height: 80%;
+            margin-top: 30px;
+            margin-left: 30px;
+            width: 80%;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            width: 150px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .form-group input, select {
+            padding: 0px 0;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 400px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #66afe9;
+            outline: none;
+        }
+
+        .btn-submit {
+            margin: 10px 0 0 150px;
+            padding: 10px 20px;
+            background-color: #66afe9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #0060ae;
+        }
+        
+        
+    </style>
+</head>
+<body>
+<div class="header">
+    <a href="home.html" style="margin-left: 100px;">HOME</a>
+    <a href="disease-prediction.html">DISEASE PREDICTION</a>
+    <a href="disease-info.html">DISEASE INFO</a>
+    <a href="medicine-info.html">MEDICINE INFO</a>
+    <a href="#connect">CONNECT <i class="glyphicon glyphicon-chevron-down"></i></a>
+    <a href="sign-in.html" style="margin-left: 400px;"><i class="glyphicon glyphicon-user"></i> SIGN IN</a>
+</div>
+<div class="bg-info" style="background-image: url('/images/Firefly\ 20250223153558.png');">
+    <div class="signin-box">
+        <div class="brand">
+            <img src="/images/logo-edited.png">
+            <p style="margin-top: 10px;font-family: 'Lexend Peta';">SMARTMED</p>
+        </div>
+        <div class="signin-form">
+            <div class="form-group">
+                <label for="username">Username </label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password </label>
+                <input type="text" id="password" name="password">
+            </div>
+            <button type="submit" class="btn-submit">SIGN IN</button>
+            <p>Forgot password?</p>
+            <button type="submit" class="btn-submit" style="margin-left:110px;">Sign in with Google</button>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2025 SmartMed. All rights reserved.</p>
+</footer>
+</body>
+</html>

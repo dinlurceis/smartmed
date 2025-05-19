@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"></head>
+<body>
+    <nav th:replace="fragments/header :: navbar"></nav>
+
+    <div class="container mt-4">
+        <h2>Thông tin cá nhân</h2>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#profile" class="list-group-item list-group-item-action active" data-toggle="list">
+                        Thông tin cơ bản
+                    </a>
+                    <a href="#security" class="list-group-item list-group-item-action" data-toggle="list">
+                        Bảo mật
+                    </a>
+                    <a href="#appointments" class="list-group-item list-group-item-action" data-toggle="list">
+                        Lịch hẹn khám
+                    </a>
+                    <a href="#prescriptions" class="list-group-item list-group-item-action" data-toggle="list">
+                        Đơn thuốc
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <!-- Profile Information -->
+                    <div class="tab-pane fade show active" id="profile">
+                        <div class="card">
+                            <div class="card-body">
+                                <form th:action="@{/profile/update}" method="post" th:object="${user}">
+                                    <div class="form-group">
+                                        <label for="fullName">Họ và tên</label>
+                                        <input type="text" class="form-control" id="fullName" th:field="*{fullName}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" th:field="*{email}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Số điện thoại</label>
+                                        <input type="tel" class="form-control" id="phone" th:field="*{phone}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Địa chỉ</label>
+                                        <textarea class="form-control" id="address" th:field="*{address}" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Cập nhật thông tin</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Settings -->
+                    <div class="tab-pane fade" id="security">
+                        <div class="card">
+                            <div class="card-body">
+                                <form th:action="@{/profile/change-password}" method="post">
+                                    <div class="form-group">
+                                        <label for="currentPassword">Mật khẩu hiện tại</label>
+                                        <input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPassword">Mật khẩu mới</label>
+                                        <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Xác nhận mật khẩu mới</label>
+                                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Appointments -->
+                    <div class="tab-pane fade" id="appointments">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Lịch hẹn khám bệnh</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Ngày khám</th>
+                                                <th>Bác sĩ</th>
+                                                <th>Chuyên khoa</th>
+                                                <th>Trạng thái</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="appointment : ${appointments}">
+                                                <td th:text="${#temporals.format(appointment.appointmentDate, 'dd/MM/yyyy HH:mm')}">
+                                                    01/01/2024 09:00
+                                                </td>
+                                                <td th:text="${'BS. ' + appointment.doctor.name}">BS. Nguyễn Văn A</td>
+                                                <td th:text="${appointment.doctor.specialty}">Nội khoa</td>
+                                                <td>
+                                                    <span class="badge" 
+                                                          th:classappend="${appointment.status == 'CONFIRMED' ? 'badge-success' : 'badge-warning'}"
+                                                          th:text="${appointment.status == 'CONFIRMED' ? 'Đã xác nhận' : 'Chờ xác nhận'}">
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info" 
+                                                            th:onclick="'viewAppointment(' + ${appointment.id} + ')'">
+                                                        Chi tiết
+                                                    </button>
+                                                    <button class="btn btn-sm btn-danger" 
+                                                            th:if="${appointment.status != 'COMPLETED'}"
+                                                            th:onclick="'cancelAppointment(' + ${appointment.id} + ')'">
+                                                        Hủy
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prescriptions -->
+                    <div class="tab-pane fade" id="prescriptions">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Đơn thuốc của bạn</h5>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Ngày </th>
+                                                <th>Ngày kê đơn</th>
+                                                <th>Bác sĩ</th>
+                                                <th>Chẩn đoán</th>
+                                                <th>Trạng thái</th>
+                                                <th>Thao tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="prescription : ${prescriptions}">
+                                            <td th:text="${#temporals.format(prescription.prescriptionDate, 'dd/MM/yyyy')}">
+                                                01/01/2024
+                                            </td>
+                                            <td th:text="${'BS. ' + prescription.doctor.name}">BS. Nguyễn Văn A</td>
+                                            <td th:text="${prescription.diagnosis}">Chẩn đoán</td>
+                                            <td>
+                                                    <span class="badge"
+                                                          th:classappend="${prescription.status == 'DISPENSED' ? 'badge-success' : 'badge-warning'}"
+                                                          th:text="${prescription.status == 'DISPENSED' ? 'Đã phát thuốc' : 'Chờ phát thuốc'}">
+                                                    </span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info"
+                                                        th:onclick="'viewPrescription(' + ${prescription.id} + ')'">
+                                                    Xem chi tiết
+                                                </button>
+                                                <a th:href="@{'/prescriptions/' + ${prescription.id} + '/print'}"
+                                                   class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-print"></i> In
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <th:block th:replace="fragments/footer :: scripts"/>
+
+    <script th:src="@{/js/profile.js}"></script>
+</body>
+</html>

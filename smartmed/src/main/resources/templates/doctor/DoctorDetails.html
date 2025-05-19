@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"></head>
+<body>
+    <nav th:replace="fragments/header :: navbar"></nav>
+
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/doctors">Danh sách bác sĩ</a></li>
+                <li class="breadcrumb-item active" aria-current="page" th:text="${'BS. ' + doctor.name}">Chi tiết bác sĩ</li>
+            </ol>
+        </nav>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img th:if="${doctor.imageUrl}" th:src="${doctor.imageUrl}" class="img-fluid rounded" alt="Doctor Image">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Thông tin liên hệ</h5>
+                        <p class="card-text">
+                            <i class="fas fa-envelope"></i> 
+                            <span th:text="${doctor.email}">email@example.com</span>
+                        </p>
+                        <p class="card-text">
+                            <i class="fas fa-phone"></i>
+                            <span th:text="${doctor.phone}">0123456789</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 th:text="${'BS. ' + doctor.name}">Tên bác sĩ</h2>
+                <p class="lead">
+                    <span class="badge badge-primary" th:text="${doctor.specialty}">Chuyên khoa</span>
+                </p>
+                
+                <div class="doctor-info mt-4">
+                    <h4>Giới thiệu</h4>
+                    <p th:text="${doctor.biography}">Tiểu sử chi tiết về bác sĩ...</p>
+
+                    <h4 class="mt-4">Chuyên môn</h4>
+                    <ul class="list-unstyled">
+                        <li th:each="expertise : ${doctor.expertiseList}">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <span th:text="${expertise}">Chuyên môn</span>
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-4">Kinh nghiệm làm việc</h4>
+                    <ul class="timeline">
+                        <li th:each="experience : ${doctor.experiences}">
+                            <p class="timeline-date" th:text="${experience.period}">2020 - Hiện tại</p>
+                            <h5 th:text="${experience.position}">Vị trí</h5>
+                            <p th:text="${experience.hospital}">Tên bệnh viện</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Booking Section -->
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Đặt lịch khám</h4>
+                        <form th:action="@{'/doctors/' + ${doctor.id} + '/booking'}" method="post">
+                            <div class="form-group">
+                                <label for="appointmentDate">Ngày khám:</label>
+                                <input type="date" class="form-control" id="appointmentDate" name="appointmentDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeSlot">Khung giờ:</label>
+                                <select class="form-control" id="timeSlot" name="timeSlot" required>
+                                    <option value="">Chọn khung giờ</option>
+                                    <option th:each="slot : ${availableTimeSlots}"
+                                            th:value="${slot.value}"
+                                            th:text="${slot.label}">09:00 - 09:30</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="symptoms">Triệu chứng:</label>
+                                <textarea class="form-control" id="symptoms" name="symptoms" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Xác nhận đặt lịch</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <th:block th:replace="fragments/footer :: scripts"/>
+</body>
+</html>

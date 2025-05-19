@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Info</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo-edited.png">
+    <link href='https://fonts.googleapis.com/css?family=Inter:500,700' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inria Sans' rel='stylesheet'>   
+    <link href='https://fonts.googleapis.com/css?family=Lexend Peta:400,900' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="header.css">
+    <style>
+        body {
+            font-size: 15px;
+            font-family: 'Inria Sans', sans-serif;
+            color: black;
+        }
+        .bg-info {
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 50vw;
+            width: 99vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .blur-bg {
+            position: absolute;
+            top: 4.2vw;
+            height: 50vw;
+            width: 99vw;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 0;
+        }
+        .bg-info h1 {
+            font-family: 'Lexend Peta', sans-serif;
+            font-size: 2vw;
+            font-weight: 900;
+            color: white;
+            z-index: 1;
+        }
+        .search-box {
+            height: 60px;
+            width: 40%;
+            z-index: 1;
+        }
+        .search-box input {
+            padding-left: 20px;
+            margin-left: 5%;
+            height: 40px;
+            width: 90%;
+            border-radius: 15px;
+            border: none;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 99vw;
+            position: relative;
+            background-color: rgba(169, 126, 255, 0.3);
+        }
+        .first-line {
+            width: 99vw;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+
+        }
+        .result {
+            flex: 7;
+            width: 60vw;
+            height: 100%;
+            padding-top: 40px;
+            padding-left: 100px;
+        }
+        .break-line {
+            width: 100%;
+            height: 1px;
+            border: 1px solid black;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .filter {
+            flex:3;
+            align-self: first baseline;
+            padding-top: 40px;
+            padding-left: 30px;
+        }
+        .add-filter {
+            background-color: rgba(0,0,0,0.8);
+            padding: 10px;
+            color: white;
+            border-radius: 10px;
+            width: 110px;
+            height: 40px;
+            text-align: center;
+            display: inline;
+            margin-right: 30px;
+        }
+        .medicine-list {
+            padding: 50px;
+            width: 99vw;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+        }
+        .medicine-box {
+            border-radius: 10px;
+            width: 80%;
+            height: 20vw;
+            background-color: #000c44;
+            flex: 1;
+        }
+        .medicine-box h3 {
+            font-family: 'Lexend Peta', serif;
+            font-size: 30px;
+            color: white;
+            text-align: center;
+        }
+        .medicine-box ul {
+            list-style: circle;
+            color: white;
+            font-size: 20px;
+            font-family: 'Inria Sans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <a href="home.html" style="margin-left: 100px;">HOME</a>
+    <a href="disease-prediction.html">DISEASE PREDICTION</a>
+    <a href="disease-info.html">DISEASE INFO</a>
+    <a href="medicine-info.html">MEDICINE INFO</a>
+    <a href="#connect">CONNECT <i class="glyphicon glyphicon-chevron-down"></i></a>
+    <a href="sign-in.html" style="margin-left: 400px;"><i class="glyphicon glyphicon-user"></i> SIGN IN</a>
+</div>
+<div class="bg-info" style="background-image: url(/images/medicine.jpg);">
+    <div class="blur-bg"></div>
+    <h1>MEDICINE SEARCH</h1>
+    <div class="search-box">
+        <input type="text" placeholder="Search for a medicine">
+        <i class="glyphicon glyphicon-search" style="color:white"></i>
+    </div>
+</div>
+<div class="container" style="height:auto;">
+    <div class="first-line">
+        <div class="result">
+            <p><b>3</b> results in Medicine Info</p>
+            <div class="break-line"></div>
+        </div>
+        <div class="filter">
+            <div class="add-filter">Add filter <i class="glyphicon glyphicon-chevron-down"></i></div>
+            Sorted by:
+            <i class="glyphicon glyphicon-sort-by-alphabet"></i>
+            <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>
+        </div>
+    </div>
+    <div class="medicine-list">
+        <div class="medicine-box">
+            <h3>Amocillin</h3>
+            <ul>
+                <li>Category: Analgestic</li>
+                <li>Dosage Form: Cream</li>
+                <li>Strength: 594 mg</li>
+                <li>Manufacturer: Amgen Inc.</li>
+                <li>Indication: Fungus</li>
+                <li>Classification: Over-the-Counter</li>
+            </ul>
+        </div>
+        <div class="medicine-box">
+            <h3>Amocimet</h3>
+            <ul>
+                <li>Category: Antifungal</li>
+                <li>Dosage Form: Capsule</li>
+                <li>Strength: 727 mg</li>
+                <li>Manufacturer: Johnson & Johnson</li>
+                <li>Indication: Pain</li>
+                <li>Classification: Over-the-Counter</li>
+            </ul>
+        </div>
+        <div class="medicine-box">
+            <h3>Amocivir</h3>
+            <ul>
+                <li>Category: Antifungal</li>
+                <li>Dosage Form: Syrup</li>
+                <li>Strength: 289 mg</li>
+                <li>Manufacturer: Novartis AG</li>
+                <li>Indication: Virus</li>
+                <li>Classification: Over-the-Counter</li>
+            </ul>
+        </div> 
+    </div>
+</div>
+<footer>
+    <p>&copy; 2025 SmartMed. All rights reserved.</p>
+</footer>
+</body>
+</html>

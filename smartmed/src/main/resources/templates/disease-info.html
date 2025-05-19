@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Info</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo-edited.png">
+    <link href='https://fonts.googleapis.com/css?family=Inter:500,700' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Inria Sans' rel='stylesheet'>   
+    <link href='https://fonts.googleapis.com/css?family=Lexend Peta:400,900' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="header.css">
+    <style>
+        body {
+            font-size: 15px;
+            font-family: 'Inria Sans', sans-serif;
+        }
+        .bg-info {
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 50vw;
+            width: 99vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .blur-bg {
+            position: absolute;
+            top: 4.2vw;
+            height: 50vw;
+            width: 99vw;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 0;
+        }
+        .bg-info h1 {
+            font-family: 'Lexend Peta', sans-serif;
+            font-size: 2vw;
+            font-weight: 900;
+            color: white;
+            z-index: 1;
+        }
+        .search-box {
+            height: 60px;
+            width: 40%;
+            z-index: 1;
+        }
+        .search-box input {
+            padding-left: 20px;
+            margin-left: 5%;
+            height: 40px;
+            width: 90%;
+            border-radius: 15px;
+            border: none;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 99vw;
+            position: relative;
+            background-color: rgba(169, 126, 255, 0.3);
+        }
+        .result {
+            flex: 7;
+            width: 60vw;
+            height: 100%;
+            padding-top: 40px;
+            padding-left: 100px;
+        }
+        .result a {
+            font-size: 25px;
+            color: black;
+        }
+        .break-line {
+            width: 100%;
+            height: 1px;
+            border: 1px solid black;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .filter {
+            flex:3;
+            align-self: first baseline;
+            padding-top: 40px;
+            padding-left: 30px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <a href="home.html" style="margin-left: 100px;">HOME</a>
+    <a href="disease-prediction.html"">DISEASE PREDICTION</a>
+    <a href="disease-info.html">DISEASE INFO</a>
+    <a href="medicine-info.html">MEDICINE INFO</a>
+    <a href="#connect">CONNECT <i class="glyphicon glyphicon-chevron-down"></i></a>
+    <a href="sign-in.html" style="margin-left: 400px;"><i class="glyphicon glyphicon-user"></i> SIGN IN</a>
+</div>
+<div class="bg-info" style="background-image: url(/images/virus.png);">
+    <div class="blur-bg"></div>
+    <h1>DISEASE SEARCH</h1>
+    <div class="search-box">
+        <input type="text" placeholder="Search for a disease">
+        <i class="glyphicon glyphicon-search" style="color:white"></i>
+    </div>
+</div>
+<div class="container" style="height:auto;">
+    <div class="result">
+        <p><b>4</b> results in Disease Info</p>
+        <div class="break-line"></div>
+        <a href="#ex1"><b>Heart Attack</b></a>
+        <p>A blockage of blood flow to the heart can damage or destroy heart muscle.</p>
+        <div class="break-line"></div>
+        <a href="#ex2">Broken heart syndrome</a>
+        <p>Learn more about this temporary heart muscle condition that can mimic a <b>heart attack</b>. It may be triggered by stressful events, such as a loved one's death.</p>
+        <div class="break-line"></div>
+        <a href="#ex3">Spontaneous coronary artery dissection (SCAD)</a>
+        <p>A torn blood vessel in the heart can cause a <b>heart attack</b>. Learn about the diagnosis and treatment of this medical emergency.</p>
+        <div class="break-line"></div>
+        <a href="#ex4">Cardiogenic shock</a>
+        <p>Most often the result of a severe <b>heart attack</b>, this rare condition can be deadly if not treated immediately.</p>
+        <div class="break-line"></div>
+    </div>
+    <div class="filter">
+        Sorted by:
+        <i class="glyphicon glyphicon-sort-by-alphabet"></i>
+        <i class="glyphicon glyphicon-sort-by-alphabet-alt"></i>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2025 SmartMed. All rights reserved.</p>
+</footer>
+</body>
+</html>

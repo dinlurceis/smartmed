@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Store</title>
+    <link rel="stylesheet" href="/src/main/resources/static/css/style_product_list.css">
+    <link rel="stylesheet" href="/src/main/resources/static/css/header.css">
+</head>
+<body>
+    <div class="header">
+        <a href="home.html" style="margin-left: 100px;">HOME</a>
+        <a href="disease-prediction.html">DISEASE PREDICTION</a>
+        <a href="disease-info.html">DISEASE INFO</a>
+        <a href="medicine-info.html">MEDICINE INFO</a>
+        <a href="#connect">CONNECT <i class="glyphicon glyphicon-chevron-down"></i></a>
+        <a href="sign-in.html" style="margin-left: 400px;"><i class="glyphicon glyphicon-user"></i> SIGN IN</a>
+    </div>
+<div class="box-center float-left" style="width: 95%;margin-left: 2.5%;">
+    <div class="banner">
+        <img src="/src/main/resources/static/images/medicine2.jpg" alt="banner">
+        <div class="text">
+            <h3>MEDICINE STORE</h3>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="sidebar">
+        <div class="filter">
+            <h2>CATEGORY</h2>
+            <ul>
+                <li><a href="#">A</a></li>
+                <li><a href="#">B</a></li>
+                <li><a href="#">C</a></li>
+                <li><a href="#">D</a></li>
+                <li><a href="#">E</a></li>
+                <li><a href="#">F</a></li>
+                <li><a href="#">ALL</a></li>
+            </ul>
+        </div>
+        
+    
+        <h2>PRICE</h2>
+        <div class="from-to">
+            <input type="text" placeholder="  From..."> -
+            <input type="text" placeholder="  To...">
+        </div>
+        <button class="filter-btn">SEARCH</button>
+    
+        <!-- <h2>THƯƠNG HIỆU</h2>
+        <ul>
+            <li>BÔNG HOA SEN</li>
+            <li>ÔNG GIÀ NOEL</li>
+            <li>TẦNG HẦM</li>
+            <li>PHÂN KHỐI LỚN</li>
+            <li>Ô CỬA SỔ</li>
+            <li>THỨC ĂN HIỆN ĐẠI</li>
+        </ul> -->
+        <h2>RATING</h2>
+        <ul class="star">
+            <!-- <li>
+                <a href="#">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/imagesff//star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com-no-color.svg" alt="">
+                    <p>trở lên</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com-no-color.svg" alt="">
+                    <img src="/src/main/resources/static/images/ff/star-svgrepo-com-no-color.svg" alt="">
+                    <p>trở lên</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com-no-color.svg" alt="">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com-no-color.svg" alt="">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com-no-color.svg" alt="">
+                    <p>trở lên</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com.svg" alt="">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com-no-color.svg" alt="">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com-no-color.svg" alt="">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com-no-color.svg" alt="">
+                    <img src="/src/main/resources/static/images/star-svgrepo-com-no-color.svg" alt="">
+                    <p>trở lên</p>
+                </a>
+            </li> -->
+        </ul>
+        </div>
+    
+        <div class="main">
+            <div class="toolbar">
+                <div class="result">View 1-12 out of 30</div>
+                <div class="sort">
+                    <p>Sort by:
+                    <select>
+                        <option value="rating">Rating</option>
+                        <option value="distance">Khoảng cách</option>
+                        <option value="popularity">Phổ biến nhất</option>
+                        <option value="newness">Mới cập nhật</option>
+                        <option value="price-up">Giá tăng dần</option>
+                        <option value="price-down">Giá giảm dần</option>
+                    </select>
+                    </p>
+                </div>
+            </div>
+    
+            <div class="grid">
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <img src="/src/main/resources/static/images/Strepsils-Orange-With-Vitamin-C100mg.png" alt="Product" />
+                    <h3>Medicine</h3>
+                    <div class="price">
+                        <p class="new">4.99$</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination-container">
+                <nav class="pagination">
+                    <a class="prev page-numbers" href="#"><img src="/src/main/resources/static/images/ff/prev-svgrepo-com.svg" alt="prev"></a>
+                    <span class="page-numbers current">1</span>
+                    <a class="page-numbers" href="#">2</a>
+                    <a class="page-numbers" href="#">3</a>
+                    <a class="next page-numbers" href="#"><img src="/src/main/resources/static/images/ff/next-svgrepo-com.svg" alt="next"></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+<div class="box-center row" style="height: 3vw;"></div>
+<div class="box-center float-left" style="width: 100%;">
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section" style="flex: 1.5;">
+                <h3>Giới thiệu</h3>
+                <p>FridgeFeast là một nền tảng web thông minh giúp người dùng tận dụng tối đa nguyên liệu hiện có trong tủ lạnh để tạo ra những bữa ăn ngon, lành mạnh và tiết kiệm...</p>
+                <a href="#">Đọc thêm →</a>
+            </div>
+
+            <div class="footer-section" style="flex: 1; margin-left:3vw;">
+                <h3>Thông tin</h3>
+                <ul>
+                    <li><a href="#">Đơn vị vận chuyển</a></li>
+                    <li><a href="#">Quy chuẩn</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Hình thức thanh toán</a></li>
+                    <li><a href="#">Về chúng tôi</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section" style="flex: 1.5;">
+                <h3>Nhận thông báo</h3>
+                <p>Thông báo về các công thức nấu ăn mới, thú vị</p>
+                <input type="email" placeholder="Enter Your Email Address">
+                <button>Đăng ký</button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright ©2025 FridgeFeast - All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Term of Use</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Site Map</a>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

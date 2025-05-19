@@ -1,0 +1,317 @@
+body {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+/* silhouette girl */
+#bg1 {
+  background-image: url("/src/main/resources/static/images/WomanSilhouette_MentalHealth.png");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: 100%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  font-weight: bold;
+}
+#list-header {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+.list-header-mem-left {
+  display: flex;
+  float: left;
+}
+.list-header-mem-left a {
+  color: black;
+  margin: 10px;
+  padding: 20px;
+  text-decoration: none;
+  top: 20px;
+  font-size: medium;
+}
+.list-header-mem-right {
+  display: flex;
+  float: right;
+}
+.list-header-mem-right a {
+  color: black;
+  margin: 10px;
+  padding: 20px 40px;
+  text-decoration: none;
+  top: 20px;
+  font-size: medium;
+}
+#middle-line {
+  border-top: 6px solid black;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  margin: auto;
+  z-index: -1;
+}
+#health-word {
+  font-family: "Lexend Peta";
+  font-size: 4vw;
+  font-weight: 900;
+  color: black;
+  position: absolute;
+  top: 37%;
+  left: 5%;
+}
+#artificial-word {
+  font-family: "Lexend Peta";
+  font-size: 4vw;
+  font-weight: 900;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 1)
+  );
+  color: transparent;
+  background-clip: text;
+  position: absolute;
+  top: 52%;
+  right: 2%;
+}
+#introduce-left {
+  position: absolute;
+  color: black;
+  left: 5%;
+  top: 90%;
+  font-size: medium;
+}
+#introduce-right {
+  position: absolute;
+  color: black;
+  right: 10%;
+  top: 90%;
+  font-size: medium;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 99vw;
+  flex: 1;
+  position: relative;
+  background-color: rgba(169, 126, 255, 0.3);
+}
+
+/* slogan */
+.line-vertical {
+  position: absolute;
+  width: 1px;
+  height: 20%;
+  background-color: #000;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+
+.divider {
+  height: 0.5px;
+  width: 200px;
+  background-color: #000;
+}
+
+.text {
+  font-weight: bold;
+  font-size: 2vw;
+  font-family: "Lexend Peta";
+  color: black;
+}
+
+.center-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line-vertical-top,
+.line-vertical-bottom {
+  width: 1px;
+  height: 100px;
+  background-color: #000;
+}
+
+/* introduce */
+.introduce-after-slogan {
+  position: relative;
+  left: -8%;
+  border-radius: 0.5vw;
+  width: 70%;
+  height: 300px;
+  background-color: #d9d9d9;
+  display: flex;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.introduce-after-slogan-content {
+  flex-direction: column;
+  flex: 1;
+}
+
+.introduce-after-slogan-content h3 {
+  width: 100%;
+  height: 20%;
+  padding-left: 5%;
+  padding-top: 2%;
+  font-family: "Lexend Peta";
+  font-size: 2vw;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+.img-after-slogan {
+  background-image: url("/src/main/resources/static/images/cough.png");
+  background-position: right;
+  background-size: cover;
+  flex: 1;
+}
+.introduce-after-slogan-content p {
+  font-family: "Inria Sans", sans-serif;
+  font-size: 20px;
+  padding: 20px 0 0 30px;
+  font-weight: 100;
+}
+
+.buttons {
+  position: relative;
+  left: 40%;
+  display: flex;
+  gap: 20px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttons button:hover {
+  background-color: black;
+  color: white;
+}
+
+.human-body-pic {
+  background-image: url("/src/main/resources/static/images/NicePng_human-body-png_715709.png");
+  background-position: right;
+  background-size: contain;
+  flex: 1;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  height: 130vh;
+  width: 100%;
+  object-fit: contain;
+  position: relative;
+  right: 10%;
+}
+.box-features {
+  position: relative;
+  left: 10%;
+  border-radius: 0.5vw;
+  width: 80%;
+  height: 250px;
+  background-color: #d9d9d9;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  gap: 50px;
+  background-attachment: scroll;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.box-features-content {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  left: 0;
+}
+.box-features-img {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-features-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.box-features h3 {
+  height: 5%;
+  padding-top: 2%;
+  font-family: "Inter";
+  font-size: 1.8vw;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+.box-features-content-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.box-features-content-text p {
+  width: 90%;
+  font-family: "Inria Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+}
+.box-features-content-text a {
+  font-family: "Inria Sans", sans-serif;
+  font-size: 20px;
+  color: #5434f5;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.box-features-content-text a:hover {
+  text-decoration: underline;
+}
+
+.about-us-p {
+  font-family: "Inria Sans", sans-serif;
+  font-size: 20px;
+  width: 90%;
+  font-weight: 100;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+    <link rel="stylesheet" th:href="@{/css/medicine.css}">
+</head>
+<body>
+<nav th:replace="fragments/header :: navbar"></nav>
+
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/medicines">Danh sách thuốc</a></li>
+            <li class="breadcrumb-item active" th:text="${medicine.name}">Chi tiết thuốc</li>
+        </ol>
+    </nav>
+
+    <div class="medicine-detail">
+        <div class="row">
+            <div class="col-md-6">
+                <img th:if="${medicine.imageUrl}" th:src="${medicine.imageUrl}"
+                     class="medicine-detail-image" alt="Medicine Image">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4" th:text="${medicine.name}">Tên thuốc</h2>
+
+                <div class="medicine-info-box">
+                    <div class="medicine-info-item">
+                        <span class="info-label">Giá bán:</span>
+                        <span class="info-value price-value"
+                              th:text="${#numbers.formatDecimal(medicine.price, 0, 'COMMA', 0, 'POINT')} + ' VNĐ'">
+                                0 VNĐ
+                            </span>
+                    </div>
+                    <div class="medicine-info-item">
+                        <span class="info-label">Trạng thái:</span>
+                        <span class="badge"
+                              th:classappend="${medicine.available ? 'badge-success' : 'badge-danger'}"
+                              th:text="${medicine.available ? 'Còn hàng' : 'Hết hàng'}">
+                            </span>
+                    </div>
+                    <div class="medicine-info-item">
+                        <span class="info-label">Thành phần:</span>
+                        <span class="info-value" th:text="${medicine.ingredients}">Các thành phần</span>
+                    </div>
+                    <div class="medicine-info-item">
+                        <span class="info-label">Chỉ định:</span>
+                        <span class="info-value" th:text="${medicine.indication}">Chỉ định sử dụng</span>
+                    </div>
+                    <div class="medicine-info-item">
+                        <span class="info-label">Liều lượng:</span>
+                        <span class="info-value" th:text="${medicine.dosage}">Liều lượng sử dụng</span>
+                    </div>
+                </div>
+
+                <div class="add-to-cart-section" th:if="${medicine.available}">
+                    <form th:action="@{/cart/add}" method="post" class="d-flex align-items-center">
+                        <input type="hidden" name="medicineId" th:value="${medicine.id}">
+                        <div class="form-group mr-3 mb-0">
+                            <label for="quantity" class="mr-2">Số lượng:</label>
+                            <input type="number" class="form-control quantity-input"
+                                   id="quantity" name="quantity" value="1" min="1">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="medicineTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="desc-tab" data-toggle="tab" href="#description">
+                            Mô tả chi tiết
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="usage-tab" data-toggle="tab" href="#usage">
+                            Cách dùng
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="side-effects-tab" data-toggle="tab" href="#sideEffects">
+                            Tác dụng phụ
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="medicineTabContent">
+                    <div class="tab-pane fade show active" id="description">
+                        <p th:text="${medicine.detailedDescription}">Mô tả chi tiết về thuốc...</p>
+                    </div>
+                    <div class="tab-pane fade" id="usage">
+                        <p th:text="${medicine.usage}">Hướng dẫn sử dụng chi tiết...</p>
+                    </div>
+                    <div class="tab-pane fade" id="sideEffects">
+                        <p th:text="${medicine.sideEffects}">Các tác dụng phụ có thể gặp...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<th:block th:replace="fragments/footer :: scripts"/>
+
+<script>
+    $(document).ready(function() {
+        // Initialize tabs
+        $('#medicineTab a').on('click', function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+
+        // Quantity input validation
+        $('#quantity').on('change', function() {
+            if ($(this).val() < 1) {
+                $(this).val(1);
+            }
+        });
+    });
+</script>
+</body>
+</html>

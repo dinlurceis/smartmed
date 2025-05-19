@@ -1,0 +1,129 @@
+/* Common styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar customization */
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* Card styles */
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Timeline style for doctor experience */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+    list-style: none;
+    max-width: 1200px;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ddd;
+    left: 31px;
+    margin-left: -1.5px;
+}
+
+.timeline > li {
+    margin-bottom: 50px;
+    position: relative;
+    min-height: 50px;
+    padding-left: 70px;
+}
+
+.timeline-date {
+    color: #6c757d;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+/* Booking form styles */
+.booking-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Profile page styles */
+.profile-header {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Footer styles */
+.footer {
+    background: #343a40;
+    color: #fff;
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #007bff;
+}
+
+.social-links a {
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+/* Medicine list styles */
+.medicine-card {
+    height: 100%;
+}
+
+.medicine-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Doctor list styles */
+.doctor-card {
+    height: 100%;
+}
+
+.doctor-card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 15px;
+    }
+    
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+}
